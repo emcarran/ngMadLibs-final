@@ -1,0 +1,173 @@
+body {
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.container {
+    border: solid;
+    margin-top: 2rem;
+    margin-bottom: 0px;
+    margin-right: 10rem;
+    margin-left: 10rem;
+    padding-bottom: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-top: 0px;
+    margin-bottom: 0px
+}
+
+.container-header {
+    border: solid;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.header-column {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.smiley {
+    width: 30%;
+    border-right: solid;
+    text-align: center;
+}
+
+.logo {
+    width: 69%;
+    text-align: center;
+}
+
+.logo img {
+    width: 50%
+}
+
+label.radio-inline {
+    margin-top;
+    0.5re;
+}
+
+#madInput {
+    text-align: center;
+}
+
+#madInput p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.column {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+}
+
+.userInput {
+    border-bottom: solid;
+    padding-bottom: 2rem;
+}
+
+.generateButton {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 0;
+    box-sizing: border-box;
+    color: orange;
+}
+
+input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.errorMsg .ng-scope {
+    color: darkorange;
+    font-size: 1rem;
+    background-color: #eee;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.textArea {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.4rem;
+    height: 2;
+    opacity: 2;
+    transition: opacity 5s, height 4s;
+}
+
+.standout {
+    font-weight: bold;
+    color: darkorange;
+    font-style: italic;
+}
+
+.resetRow {
+    float: none;
+    margin-right: 2rem;
+}
+
+.btnReset {
+    width: 20%;
+    margin-right: 15rem;
+    font-size: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.userInput.ng-hide-add,
+.userInput.ng-hide-add-active {
+    transition: 0s linear all;
+    -o-transition: 0s linear all;
+    -moz-transition: 0s linear all;
+    -webkit-transition: 0s linear all;
+}
+
+.userInput.ng-hide-remove,
+.userInput.ng-hide-remove-active {
+    transition: 0.5s ease-out all;
+    -o-transition: 0.5s ease-out all;
+    -moz-transition: 0.5s ease-out all;
+    -webkit-transition: 0.5s ease-out all;
+}
+
+.textArea.ng-hide-add,
+.textArea.ng-hide-remove.ng-hide-remove-active {
+    position: absolute;
+    left: 0;
+    opacity: 1;
+}
+
+.textArea.ng-hide-remove,
+.textArea.ng-hide-add.ng-hide-add-active {
+    position: absolute;
+    left: -800px;
+    opacity: 0;
+}
+
+.column.ng-enter.ng-hide-add,
+.column.ng-enter.ng-hide-remove.ng-hide-remove-active {
+    position: absolute;
+    left: 0;
+    opacity: 1;
+}
+
+.column.ng-enter.ng-hide-remove,
+.column.ng-enter.ng-hide-add.ng-hide-add-active {
+    position: absolute;
+    left: 800px;
+    opacity: 0;
+}

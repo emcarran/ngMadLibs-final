@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ngMadLibs</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body ng-controller="myCtrl">
+    <main class="container">
+        <header class="container-header">
+            <div class="smiley header-column">
+                <img src="images/mad-lib-happy-face.png" alt="Smiley Face">
+            </div>
+            <div class="logo header-column">
+                <img src="images/ng-mad-libs-logo.png" alt="Logo">
+                <h1>Automate This!</h1>
+            </div>
+        </header>
+
+        <section class="userInput" ng-hide="inputHide && madInput.$valid">
+            <form id="madInput" name="madInput" ng-submit="submit()" novalidate>
+                <div class="row">
+                    <div class="col-xs-12 gender">
+                        <div class="form-group col-md-6 col-md-offset-3 text-center">
+                            <p class="radio-inline">MadLibs for a boy or girl?</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id='male' value='male' ng-model="data.gender" ng-click="gender.heShe = 'he'; gender.hisHer = 'his'; gender.himHer = 'him'" required>Boy
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id='female' value='female' ng-model="data.gender" ng-click="gender.heShe = 'she'; gender.hisHer = 'her'; gender.himHer = 'her'" required>Girl
+                            </label>
+                            <div class='errorMsg' ng-if="madInput.gender.$error.required" ng-messages="madInput.gender.$error">
+                                <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please select a gender</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <p>Provide the following words:</p>
+                <div class="column ng-enter">
+                    <input type="text" name="name" placeholder="name" ng-model="data.name" required>
+                    <div class='errorMsg' ng-if="madInput.name.$touched" ng-messages="madInput.name.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a name</div>
+                    </div>
+                    <input type="text" name="jobTitle" placeholder="job title" ng-model="data.jobTitle" required>
+                    <div class='errorMsg' ng-if="madInput.jobTitle.$touched" ng-messages="madInput.jobTitle.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a job</div>
+                    </div>
+                    <input type="text" name="tediousTask" placeholder="tedious task" ng-model="data.tediousTask" required>
+                    <div class='errorMsg' ng-if="madInput.tediousTask.$touched" ng-messages="madInput.tediousTask.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a tedious task</div>
+                    </div>
+                </div>
+                <div class="column">
+                    <input type="text" name="dirtyTask" placeholder="dirty task" ng-model="data.dirtyTask" required>
+                    <div class='errorMsg' ng-if="madInput.dirtyTask.$touched" ng-messages="madInput.dirtyTask.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a dirty task</div>
+                    </div>
+                    <input type="text" name="celebrity" placeholder="celebrity" ng-model="data.celebrity" required>
+                    <div class='errorMsg' ng-if="madInput.celebrity.$touched" ng-messages="madInput.celebrity.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a celebrity</div>
+                    </div>
+                    <input type="text" name="uselessSkill" placeholder="useless skill" ng-model="data.uselessSkill" required>
+                    <div class='errorMsg' ng-if="madInput.uselessSkill.$touched" ng-messages="madInput.uselessSkill.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a useless skill</div>
+                    </div>
+                </div>
+                <div class="column">
+                    <input type="text" name="adjective" placeholder="adjective" ng-model="data.adjective" required>
+                    <div class='errorMsg' ng-if="madInput.adjective.$touched" ng-messages="madInput.adjective.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter an adjective</div>
+                    </div>
+                    <input type="text" name="obnoxiousCelebrity" placeholder="obnoxious celebrity" ng-model="data.obnoxiousCelebrity" required>
+                    <div class='errorMsg' ng-if="madInput.obnoxiousCelebrity.$touched" ng-messages="madInput.obnoxiousCelebrity.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter an obnoxious celebrity</div>
+                    </div>
+                    <input type="text" name="hugeNumber" placeholder="huge number" ng-model="data.hugeNumber" required>
+                    <div class='errorMsg' ng-if="madInput.hugeNumber.$touched" ng-messages="madInput.hugeNumber.$error">
+                        <div ng-message="required"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please enter a huge number</div>
+
+                    </div>
+                </div>
+                <div class="generateButton" ng-hide="showColumnNgEnter">
+                    <input type="submit" value="Generate My MadLib" />
+                </div>
+            </form>
+
+        </section>
+
+        <section class="textArea" ng-show="inputHide && madInput.$valid">
+            <p><span class="standout">{{data.name}}</span> was a <span class="standout">{{data.jobTitle}}</span> who loved technology. Although <span class="gender-standout">{{gender.heShe}}</span> loved parts of <span class="gender-standout">{{gender.hisHer}}</span> job, <span class="gender-standout">{{gender.heShe}}</span> absolutely hated <span class="standout">{{data.tediousTask}}</span> and <span class="standout">{{data.dirtyTask}}</span>. So, <span class="standout">{{data.name}}</span> met with <span class="gender-standout">{{gender.hisHer}}</span> life mentor <span class="standout">{{celebrity}}</span> who taught <span class="gender-standout">{{gender.hisHer}}</span> <span class="standout">{{data.uselessSkill}} </span> with Thinkful. Thinkful didn't offer a course on <span class="standout">{{data.uselessSkill}}</span> so <span class="gender-standout">{{gender.heShe}}</span> studied programming instead. </p>
+            <p>What a great decision! With <span class="gender-standout">{{gender.hisHer}}</span> new skills, <span class="standout">{{data.name}}</span> built a(n) <span class="standout">{{data.adjective}}</span> robot named <span class="standout">{{data.obnoxiousCelebrity}}</span> that not only loved <span class="standout">{{data.dirtyTask}}</span> but did it <span class="standout">{{data.hugeNumber}}</span> times faster. </p>
+            <div class="resetRow">
+                <button class="btnReset" type="submit" ng-click="reset()">Start Over</button>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer>
+        <span>ngMadLibs -version {{version}}</span>
+    </footer>
+    <!--scripts-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <!--<script type="text/javascript" src="https://code.angularjs.org/1.5.5/angular.min.js/angular-animate.js"></script>-->
+    <script src="https://code.angularjs.org/1.5.5/angular.min.js" type="text/javascript"></script>
+    <script src='https://code.angularjs.org/1.5.5/angular-messages.min.js' type="text/javascript"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
