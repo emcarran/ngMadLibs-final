@@ -138,10 +138,10 @@ footer {
 
 .userInput.ng-hide-remove,
 .userInput.ng-hide-remove-active {
-    transition: 0.5s ease-out all;
-    -o-transition: 0.5s ease-out all;
-    -moz-transition: 0.5s ease-out all;
-    -webkit-transition: 0.5s ease-out all;
+    transition: 1s ease-out all;
+    -o-transition: 1s ease-out all;
+    -moz-transition: 1s ease-out all;
+    -webkit-transition: 1s ease-out all;
 }
 
 .textArea.ng-hide-add,
